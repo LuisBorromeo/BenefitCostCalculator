@@ -1,0 +1,14 @@
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\bin\Debug\netcoreapp2.0\BenefitCostCalculator.Test.deps.json
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\bin\Debug\netcoreapp2.0\BenefitCostCalculator.Test.runtimeconfig.json
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\bin\Debug\netcoreapp2.0\BenefitCostCalculator.Test.runtimeconfig.dev.json
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\bin\Debug\netcoreapp2.0\BenefitCostCalculator.Test.dll
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\bin\Debug\netcoreapp2.0\BenefitCostCalculator.Test.pdb
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\obj\Debug\netcoreapp2.0\BenefitCostCalculator.Test.csprojAssemblyReference.cache
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\obj\Debug\netcoreapp2.0\BenefitCostCalculator.Test.csproj.CoreCompileInputs.cache
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\obj\Debug\netcoreapp2.0\BenefitCostCalculator.Test.AssemblyInfoInputs.cache
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\obj\Debug\netcoreapp2.0\BenefitCostCalculator.Test.AssemblyInfo.cs
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\obj\Debug\netcoreapp2.0\BenefitCostCalculator.Test.dll
+c:\dev\CodeChallenge\BenefitCostCalculator\BenefitCostCalculator.Test\obj\Debug\netcoreapp2.0\BenefitCostCalculator.Test.pdb

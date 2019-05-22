@@ -5,3 +5,5 @@
 *.lock
 *.ide-shm
 BenefitCostCalculator.Test/obj/Debug/netcoreapp2.0/BenefitCostCalculator.Test.csproj.FileListAbsolute.txt
+*.ide-wal
+.vs/BenefitCostCalculator/v15/Server/sqlite3/storage.ide

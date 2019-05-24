@@ -23,8 +23,23 @@ describe('QuoteComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load employee data given a valid employee id route', () => {
+  it('employee name should be displayed', () => {
     // expect(component).toBeTruthy();
-    let parent = element(by.tagName(parentTag));
+  });
+
+  it('if employee not found then display NotFound message', () => {
+    // expect(component).toBeTruthy();
+  });
+
+  it('should enable add button when dependent name is valid.', () => {
+    // expect(component).toBeTruthy();
+  });
+
+  it('should display total cost.', () => {
+    // expect(component).toBeTruthy();
+  });
+
+  it('should display discount amount.', () => {
+    // expect(component).toBeTruthy();
   });
 });

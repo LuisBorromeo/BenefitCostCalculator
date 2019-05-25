@@ -1,4 +1,9 @@
+/* tslint:disable:no-trailing-whitespace */
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {switchMap} from 'rxjs/operators';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {Employee} from '../core/model/employee';
+import {EmployeeService} from '../service/employee.service';
 
 @Component({
   selector: 'app-quote',
@@ -9,14 +14,51 @@ export class QuoteComponent implements OnInit {
   dependentNameInput: string;
 
   displayedColumns: string[] = ['name', 'columndelete'];
-  dependentData: string[] = ['sdfasd'];
+  dependentData: string[] = [];
+  employeeId: number;
 
   dataTableSource: string[];
 
-  constructor(private changeDetectorRefs: ChangeDetectorRef) { }
+  private changeDetectorRefs: ChangeDetectorRef;
+
+  private readonly employeeService: EmployeeService;
+  private employee: Employee;
+
+  constructor(changeDetectorRefs: ChangeDetectorRef,
+              private readonly route: ActivatedRoute,
+              private readonly router: Router,
+              employeeService: EmployeeService) {
+    this.employeeService = employeeService;
+    this.changeDetectorRefs = changeDetectorRefs;
+  }
 
   ngOnInit() {
-    this.refresh();
+    // this.refresh();
+    let employeeIdRouteParam$ = this.route.paramMap.pipe(
+      switchMap(params => {
+        return params.get('employeeId');
+        /*const id = +params.get('employeeId')
+        return this.service.getData(id) // http request*/
+      })
+    );
+
+    employeeIdRouteParam$.subscribe(employeeIdRouteParam => {
+      this.employeeId = +employeeIdRouteParam;
+      this.init();
+    });
+
+    // For subscribing to the observable paramMap...
+    // this._route.paramMap.pipe(
+    //   switchMap((params: ParamMap) => {
+    //     this.employeeId = +params.get('employeeId');
+    //   })
+    // );
+
+  }
+
+  private init() {
+    this.employeeService.get(this.employeeId)
+      .subscribe(result => this.employee = result);
   }
 
   addDependent() {

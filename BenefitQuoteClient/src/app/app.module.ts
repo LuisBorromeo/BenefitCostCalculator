@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { QuoteModule } from './quote/quote.module';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { QuoteModule } from './quote/quote.module';
     SharedModule,
     HomeModule,
     QuoteModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

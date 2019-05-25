@@ -6,6 +6,7 @@ import {QuoteRoutingModule} from './quote-routing.module';
 import {MatButtonModule, MatFormFieldModule, MatInputModule, MatCardModule, MatDividerModule, MatListModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from '../shared/shared.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import {SharedModule} from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     SharedModule,
     BrowserAnimationsModule,
     QuoteRoutingModule,

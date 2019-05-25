@@ -13,6 +13,7 @@ import {
   MatDividerModule,
   MatTableModule, MatIconModule
 } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {
     HttpClientModule,
     RouterModule,
 
+    BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
@@ -43,6 +45,7 @@ import {
     RouterModule,
     HeaderComponent,
 
+    BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,

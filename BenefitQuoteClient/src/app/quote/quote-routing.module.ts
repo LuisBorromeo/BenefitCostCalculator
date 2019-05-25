@@ -4,7 +4,7 @@ import {QuoteComponent} from './quote.component';
 
 const routes: Routes = [
   {
-    path: 'quote',
+    path: 'quote/employee/:employeeId',
     component: QuoteComponent,
   }
 ];
@@ -14,4 +14,6 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class QuoteRoutingModule { }
+export class QuoteRoutingModule {
+  static routes: Routes = routes;
+}

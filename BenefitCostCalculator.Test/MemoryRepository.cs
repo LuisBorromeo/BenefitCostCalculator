@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using EmployeeBenefits.Type.Data;
 
 namespace BenefitCostCalculator.Test
@@ -19,7 +20,7 @@ namespace BenefitCostCalculator.Test
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return dataTable.Values.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

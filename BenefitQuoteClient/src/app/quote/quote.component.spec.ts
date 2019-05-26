@@ -6,6 +6,7 @@ import {SharedModule} from '../shared/shared.module';
 import {CoreModule} from '../core/core.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {TestEmployeeService} from '../service/testing/test-employee.service';
+  import {By} from '@angular/platform-browser';
 
 describe('QuoteComponent', () => {
   let component: QuoteComponent;
@@ -34,10 +35,25 @@ describe('QuoteComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display name of employee', () => {
+  it('should get employee by valid employeeId', () => {
     component.employeeId = 1;
-    component.init();
+    component.getData();
 
     expect(component.employee).toBeDefined();
+    expect(component.isError).toBeFalsy();
   });
+
+  it('should diplay 404 message if employee not found.', () => {
+    component.employeeId = 2341234;
+    component.getData();
+
+    expect(component.employee).toBeUndefined();
+    expect(component.isError).toBeTruthy();
+    expect(component.errorMessage).toBeDefined();
+    expect(component.errorMessage).not.toBeNull();
+    expect(component.errorMessage).not.toEqual('');
+    expect(component.errorMessage.length).toBeGreaterThan(0);
+  });
+
 });
+

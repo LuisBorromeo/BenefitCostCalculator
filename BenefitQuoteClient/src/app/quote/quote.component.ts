@@ -1,10 +1,12 @@
 /* tslint:disable:no-trailing-whitespace */
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {switchMap} from 'rxjs/operators';
+import {catchError, map, switchMap} from 'rxjs/operators';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {IEmployee} from '../core/model/IEmployee';
 import {EmployeeService} from '../service/employee.service';
 import {Employee} from '../core/model/Employee';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-quote',
@@ -12,6 +14,9 @@ import {Employee} from '../core/model/Employee';
   styleUrls: ['./quote.component.css']
 })
 export class QuoteComponent implements OnInit {
+  isError = false;
+  errorMessage: string;
+
   dependentNameInput: string;
 
   displayedColumns: string[] = ['name', 'columndelete'];
@@ -44,7 +49,7 @@ export class QuoteComponent implements OnInit {
 
     employeeIdRouteParam$.subscribe(employeeIdRouteParam => {
       this.employeeId = +employeeIdRouteParam;
-      this.init();
+      this.getData();
     });
 
     // For subscribing to the observable paramMap...
@@ -56,9 +61,14 @@ export class QuoteComponent implements OnInit {
 
   }
 
-  init() {
+  getData() {
     if (this.employeeId) {
-      this.employeeService.get(this.employeeId)
+      this.employeeService
+        .get(this.employeeId)
+        .pipe(
+          map(employee => employee),
+          catchError(this.handleError<IEmployee>(`Employee`))
+        )
         .subscribe(result => this.employee = result);
     }
   }
@@ -84,4 +94,36 @@ export class QuoteComponent implements OnInit {
       .filter(i => i !== elm)
       .map((i, idx) => (i.position = (idx + 1), i));*/
   }
+
+  private handleError<T>(resourceName = 'resource') {
+    return (error: HttpErrorResponse): Observable<T> => {
+      this.isError = true;
+
+      // TODO: send the error to remote logging infrastructure
+      // console.error(error); // log to console instead
+
+      // const message = (error.error instanceof ErrorEvent) ?
+      //   error.error.message : `server returned code ${error.status} with body "${error.error}"`;
+
+      switch (error.status) {
+        case 404: {
+          this.errorMessage = 'The ' + resourceName + ' could could not be found.';
+          break;
+        }
+        case 401: {
+          this.errorMessage = 'We do not have access to ' + resourceName + '.';
+          break;
+        }
+        default: {
+          this.errorMessage = 'Oops! Something went wrong accessing ' + resourceName + '.';
+          console.error(error);
+          break;
+        }
+      }
+
+      // TODO: better job of transforming error for user consumption
+      throw new Error(`${resourceName} failed: ${this.errorMessage}`);
+    };
+  }
+
 }

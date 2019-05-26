@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import {EmployeeService} from '../employee.service';
 import {asyncData} from '../../../testing/async-observable-helpers';
 import {Employee} from '../../core/model/Employee';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 @Injectable()
 export class TestEmployeeService extends EmployeeService {
@@ -19,7 +19,6 @@ export class TestEmployeeService extends EmployeeService {
     new Employee(1, 'alex smith'),
     new Employee(2, 'John Doe'),
     ];
-  lastResult: Observable<Employee>; // result from last method call
 
   /*
   addHero(hero: Hero): Observable<Hero> {
@@ -35,9 +34,28 @@ export class TestEmployeeService extends EmployeeService {
   }*/
 
   get(employeeId: number): Observable<Employee> {
-    // let employee1 = this.employees.find(e => e.id === employeeId);
-    // return this.lastResult = asyncData(this.employees[0]);
-    return of(this.employees.find(e => e.id === employeeId));
+    // const employee = this.employees.find(e => e.id === employeeId);
+    // if (employee){
+    //   this.lastResult = of(employee);
+    // } else {
+    //   throw new HttpErrorResponse({status: 404, statusText: 'Not Found', url: '/employee'});
+    // }
+    // this.lastResult = of(this.employees.find(e => e.id === employeeId));
+
+    return of(this.employees.find(e => e.id === employeeId))
+      .pipe(
+        map(empl => {
+          if (empl){
+            return empl;
+          } else {
+            throw new HttpErrorResponse({status: 404, statusText: 'Not Found', url: '/employee'});
+          }
+        })
+      );
+  }
+
+  all(): Observable<Employee[]> {
+    return of(this.employees);
   }
 
   /*updateHero(hero: Hero): Observable<Hero> {

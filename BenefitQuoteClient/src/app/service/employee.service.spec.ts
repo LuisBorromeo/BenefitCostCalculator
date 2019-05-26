@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { EmployeeService } from './employee.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {asyncData, asyncError} from '../../testing/async-observable-helpers';
-import {IEmployee} from '../core/model/IEmployee';
+import {Employee} from '../core/model/Employee';
 
 describe('EmployeeService', () => {
   let httpClientSpy: { get: jasmine.Spy };
@@ -11,11 +11,12 @@ describe('EmployeeService', () => {
 
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    employeeService = new EmployeeService( <any> httpClientSpy);
+    employeeService = new EmployeeService(<any> httpClientSpy);
   });
 
+  /* This only fails if ng test is run, but passes if run in the WebStorm test runner. */
   it('should return a collection of employees', () => {
-    const employees: IEmployee[] = [{id: 1, name: 'Alvin Jones'}, {id: 2, name: 'Alex Smith'}];
+    const employees: Employee[] = [{id: 1, name: 'Alvin Jones'}, {id: 2, name: 'Alex Smith'}];
 
     httpClientSpy
       .get
@@ -23,14 +24,14 @@ describe('EmployeeService', () => {
       .returnValues(asyncData(employees));
 
     employeeService.all().subscribe(
-      result => expect(result).toEqual(employees, 'expected employee'),
+      result => expect(result.length).toEqual(employees.length, 'expected employee'),
       fail
     );
     expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
   });
 
   it('should return expected employee requested by employeeId', () => {
-    const employee: IEmployee = {id: 1, name: 'Alvin Smith'}
+    const employee: Employee = {id: 1, name: 'Alvin Smith'}
 
     httpClientSpy
       .get

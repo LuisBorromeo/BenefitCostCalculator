@@ -18,7 +18,7 @@ export class EmployeeService {
     }
   }
 
-  get(employeeId: number): Observable<Employee> {
+  get(employeeId: string): Observable<Employee> {
     const url = this.rootApiUrl + '/employee/' + employeeId;
     return this.http.get<Employee>(url);
   }

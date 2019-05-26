@@ -16,7 +16,7 @@ describe('EmployeeService', () => {
 
   /* This only fails if ng test is run, but passes if run in the WebStorm test runner. */
   it('should return a collection of employees', () => {
-    const employees: Employee[] = [{id: 1, name: 'Alvin Jones'}, {id: 2, name: 'Alex Smith'}];
+    const employees: Employee[] = [{id: '1', name: 'Alvin Jones'}, {id: '2', name: 'Alex Smith'}];
 
     httpClientSpy
       .get
@@ -31,7 +31,7 @@ describe('EmployeeService', () => {
   });
 
   it('should return expected employee requested by employeeId', () => {
-    const employee: Employee = {id: 1, name: 'Alvin Smith'}
+    const employee: Employee = {id: '1', name: 'Alvin Smith'}
 
     httpClientSpy
       .get
@@ -58,7 +58,7 @@ describe('EmployeeService', () => {
     // httpClientSpy.get.and.returnValue(asyncError(errorResponse));
     httpClientSpy.get.and.callFake((url: string) => asyncError(errorResponse));
 
-    employeeService.get(-1).subscribe(
+    employeeService.get('unkownId').subscribe(
       employee => fail('expected an error, not Employee'),
       error  => expect(error.message).toContain('404')
     );

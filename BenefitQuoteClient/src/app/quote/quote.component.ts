@@ -21,7 +21,7 @@ export class QuoteComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'columndelete'];
   dependentData: string[] = [];
-  employeeId: number;
+  employeeId: string;
   employee: Employee;
 
   dataTableSource: string[];
@@ -40,7 +40,7 @@ export class QuoteComponent implements OnInit {
   ngOnInit() {
     // this.refresh();
     let employeeIdRouteParam$ = this.route.paramMap.pipe(
-      switchMap(params => {
+      map(params => {
         return params.get('employeeId');
         /*const id = +params.get('employeeId')
         return this.service.getData(id) // http request*/
@@ -48,7 +48,7 @@ export class QuoteComponent implements OnInit {
     );
 
     employeeIdRouteParam$.subscribe(employeeIdRouteParam => {
-      this.employeeId = +employeeIdRouteParam;
+      this.employeeId = employeeIdRouteParam;
       this.getData();
     });
 
@@ -67,7 +67,7 @@ export class QuoteComponent implements OnInit {
         .get(this.employeeId)
         .pipe(
           map(employee => employee),
-          catchError(this.handleError<IEmployee>(`Employee`))
+          catchError(this.handleError<Employee>(`Employee`))
         )
         .subscribe(result => this.employee = result);
     }

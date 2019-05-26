@@ -16,8 +16,8 @@ export class TestEmployeeService extends EmployeeService {
   }
 
   employees: Employee[] = [
-    new Employee(1, 'alex smith'),
-    new Employee(2, 'John Doe'),
+    new Employee('1', 'alex smith'),
+    new Employee('2', 'John Doe'),
     ];
 
   /*
@@ -33,7 +33,7 @@ export class TestEmployeeService extends EmployeeService {
     return this.lastResult = asyncData(this.heroes);
   }*/
 
-  get(employeeId: number): Observable<Employee> {
+  get(employeeId: string): Observable<Employee> {
     // const employee = this.employees.find(e => e.id === employeeId);
     // if (employee){
     //   this.lastResult = of(employee);

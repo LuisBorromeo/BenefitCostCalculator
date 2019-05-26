@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
@@ -14,6 +15,12 @@
     <ProjectReference Include="..\EmployeeBenefits.Impl\EmployeeBenefits.Impl.csproj" />
     <ProjectReference Include="..\EmployeeBenefits.Type\EmployeeBenefits.Type.csproj" />
     <ProjectReference Include="..\EmployeeBenefits.VM\EmployeeBenefits.VM.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AutoMapper.Extensions.Microsoft.DependencyInjection">
+      <HintPath>..\..\..\..\.nuget\packages\automapper.extensions.microsoft.dependencyinjection\6.1.0\lib\netstandard2.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

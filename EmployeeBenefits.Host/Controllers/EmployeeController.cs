@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using EmployeeBenefits.Type;
+using EmployeeBenefits.VM;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeBenefits.Host.Controllers
@@ -12,23 +14,30 @@ namespace EmployeeBenefits.Host.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeService _employeeService;
+        private readonly IMapper _mapper;
 
-        public EmployeeController(IEmployeeService employeeService)
+        public EmployeeController(IEmployeeService employeeService, IMapper mapper)
         {
             _employeeService = employeeService;
+            _mapper = mapper;
         }
-        // GET api/values
+        // GET api/employee
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<EmployeeResult>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var allEmployees = _employeeService.All();
+
+            var employeeResult = _mapper.Map<EmployeeResult[]>(allEmployees);
+            return employeeResult;
+//            return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
+        // GET api/employee/<shortGuid>
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<EmployeeResult> Get(string id)
         {
-            return "value";
+            var employee = _employeeService.Get(id);
+            return _mapper.Map <EmployeeResult>(employee);
         }
 
         // POST api/values

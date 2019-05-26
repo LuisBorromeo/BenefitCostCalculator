@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using BenefitCostCalculator.Test;
 using EmployeeBenefits.Impl.Encoding;
 using EmployeeBenefits.Type;
@@ -28,7 +29,9 @@ namespace EmployeeBenefits.Host
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddAutoMapper();
 
             var memoryRepository = new MemoryRepository<Employee>();
             SetupEmployees().ForEach(employee => memoryRepository.Save(employee.Id, employee));
@@ -40,6 +43,10 @@ namespace EmployeeBenefits.Host
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors(
+                options => options.WithOrigins().AllowAnyMethod()
+            );
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

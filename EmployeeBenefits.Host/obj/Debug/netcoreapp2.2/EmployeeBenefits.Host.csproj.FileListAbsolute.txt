@@ -3,6 +3,12 @@ C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.Host.runtimeconfig.dev.json
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.Host.dll
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.Host.pdb
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.Impl.dll
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.Type.dll
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.VM.dll
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.Impl.pdb
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.Type.pdb
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.VM.pdb
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\obj\Debug\netcoreapp2.2\EmployeeBenefits.Host.csprojAssemblyReference.cache
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\obj\Debug\netcoreapp2.2\EmployeeBenefits.Host.csproj.CoreCompileInputs.cache
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\obj\Debug\netcoreapp2.2\EmployeeBenefits.Host.RazorAssemblyInfo.cache
@@ -10,12 +16,6 @@ C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\obj\Debug\netcoreapp2.2\EmployeeBenefits.Host.AssemblyInfoInputs.cache
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\obj\Debug\netcoreapp2.2\EmployeeBenefits.Host.AssemblyInfo.cs
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\obj\Debug\netcoreapp2.2\EmployeeBenefits.Host.RazorTargetAssemblyInfo.cache
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\obj\Debug\netcoreapp2.2\EmployeeBenefits.Host.csproj.CopyComplete
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\obj\Debug\netcoreapp2.2\EmployeeBenefits.Host.dll
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\obj\Debug\netcoreapp2.2\EmployeeBenefits.Host.pdb
-C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.Impl.dll
-C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.Type.dll
-C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.VM.dll
-C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.Impl.pdb
-C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.Type.pdb
-C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\bin\Debug\netcoreapp2.2\EmployeeBenefits.VM.pdb
-C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Host\obj\Debug\netcoreapp2.2\EmployeeBenefits.Host.csproj.CopyComplete

@@ -44,9 +44,6 @@ namespace EmployeeBenefits.Host
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
-            //            app.UseCors(
-            //                options => options.WithOrigins().AllowAnyMethod().AllowAnyHeader()
-            //            );
 
             if (env.IsDevelopment())
             {

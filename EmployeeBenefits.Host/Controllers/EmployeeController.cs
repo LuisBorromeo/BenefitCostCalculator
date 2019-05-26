@@ -29,7 +29,6 @@ namespace EmployeeBenefits.Host.Controllers
 
             var employeeResult = _mapper.Map<EmployeeResult[]>(allEmployees);
             return employeeResult;
-//            return new string[] { "value1", "value2" };
         }
 
         // GET api/employee/<shortGuid>
@@ -37,24 +36,24 @@ namespace EmployeeBenefits.Host.Controllers
         public ActionResult<EmployeeResult> Get(string id)
         {
             var employee = _employeeService.Get(id);
+
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
             return _mapper.Map <EmployeeResult>(employee);
         }
 
         // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+//        [HttpPost]
+//        public void Post([FromBody] string value)
+//        {
+//        }
 
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
         {
         }
     }

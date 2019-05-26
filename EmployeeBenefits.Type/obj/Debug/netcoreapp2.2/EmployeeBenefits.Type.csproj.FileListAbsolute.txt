@@ -1,0 +1,8 @@
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\bin\Debug\netcoreapp2.2\EmployeeBenefits.Type.deps.json
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\bin\Debug\netcoreapp2.2\EmployeeBenefits.Type.dll
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\bin\Debug\netcoreapp2.2\EmployeeBenefits.Type.pdb
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\obj\Debug\netcoreapp2.2\EmployeeBenefits.Type.csproj.CoreCompileInputs.cache
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\obj\Debug\netcoreapp2.2\EmployeeBenefits.Type.AssemblyInfoInputs.cache
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\obj\Debug\netcoreapp2.2\EmployeeBenefits.Type.AssemblyInfo.cs
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\obj\Debug\netcoreapp2.2\EmployeeBenefits.Type.dll
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\obj\Debug\netcoreapp2.2\EmployeeBenefits.Type.pdb

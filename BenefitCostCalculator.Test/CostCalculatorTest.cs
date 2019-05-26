@@ -3,7 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
-using Castle.Core.Internal;
+using EmployeeBenefits.Impl;
+using EmployeeBenefits.Impl.Rule;
+using EmployeeBenefits.Type;
+using EmployeeBenefits.Type.Data;
+using EmployeeBenefits.Type.Rule;
 using Moq;
 using Xunit;
 
@@ -145,113 +149,6 @@ namespace BenefitCostCalculator.Test
             Assert.True(totalAnnualCost == 1950);
             Assert.True(costPerPaycheck == 75);
         }
-    }
-
-    public class DisountCalculator : IRuleEvaluator
-    {
-        private readonly IRulesService _rulesService;
-
-        public DisountCalculator(IRulesService rulesService)
-        {
-            _rulesService = rulesService;
-        }
-
-        public decimal GetTotalDiscount(Employee employee)
-        {
-            decimal totalDiscount = 0;
-            var rules = _rulesService.GetAllRules();
-
-            foreach (var rule in rules)
-            {
-                totalDiscount += rule.GetDiscount(employee);
-            }
-
-            return totalDiscount;
-        }
-    }
-
-    public interface IDiscountRule
-    {
-        decimal GetDiscount(Employee employee);
-    }
-
-    public class NameStartingWithTheLetterA : IDiscountRule
-    {
-        private readonly decimal _baseAnnualCostPerEmployee;
-        private readonly decimal _annualCostPerDependent;
-        private readonly decimal _discountPercent;
-
-        public NameStartingWithTheLetterA(decimal baseAnnualCostPerEmployee, decimal annualCostPerDependent, decimal discountPercent)
-        {
-            _baseAnnualCostPerEmployee = baseAnnualCostPerEmployee;
-            _annualCostPerDependent = annualCostPerDependent;
-            _discountPercent = discountPercent;
-        }
-
-        public decimal GetDiscount(Employee employee)
-        {
-            decimal totalDiscount = 0;
-
-            // 10% discount rule
-            if (employee.Name.Trim().ToLower().StartsWith("a"))
-            {
-                totalDiscount += _baseAnnualCostPerEmployee * _discountPercent;
-            }
-
-            if (!employee.Dependents.IsNullOrEmpty())
-            {
-                var numberOfDependentsEligibleForDiscount = employee?.Dependents
-                    .Count(name => name.Trim().ToLower().StartsWith("a"));
-
-                totalDiscount += (_annualCostPerDependent * _discountPercent) * (decimal) numberOfDependentsEligibleForDiscount;
-            }
-
-            return totalDiscount;
-        }
-    }
-
-    public interface IRulesService
-    {
-        IEnumerable<IDiscountRule> GetAllRules();
-    }
-
-    public class RulesService : IRulesService
-    {
-        private readonly IRuleRepository _ruleRepository;
-
-        public RulesService(IRuleRepository ruleRepository)
-        {
-            _ruleRepository = ruleRepository;
-        }
-
-        public IEnumerable<IDiscountRule> GetAllRules()
-        {
-            return _ruleRepository.GetAll();
-        }
-    }
-
-    public interface IRuleRepository
-    {
-        IEnumerable<IDiscountRule> GetAll();
-    }
-
-    public interface IRuleEvaluator
-    {
-        decimal GetTotalDiscount(Employee employee);
-    }
-
-    public class Employee
-    {
-        public string Name { get; set; }
-        public decimal Salary { get; set; }
-        public List<string> Dependents { get; set; }
-    }
-
-    public interface IRepository<T> : IEnumerable<T>
-    {
-        void Save(string id, T obj);
-        T Get(string id);
-        void Delete(string id);
     }
 
     public class MemoryRepository<T> : IRepository<T>

@@ -1,0 +1,9 @@
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.VM\bin\Debug\netcoreapp2.2\EmployeeBenefits.VM.deps.json
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.VM\bin\Debug\netcoreapp2.2\EmployeeBenefits.VM.dll
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.VM\bin\Debug\netcoreapp2.2\EmployeeBenefits.VM.pdb
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.VM\obj\Debug\netcoreapp2.2\EmployeeBenefits.VM.csprojAssemblyReference.cache
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.VM\obj\Debug\netcoreapp2.2\EmployeeBenefits.VM.csproj.CoreCompileInputs.cache
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.VM\obj\Debug\netcoreapp2.2\EmployeeBenefits.VM.AssemblyInfoInputs.cache
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.VM\obj\Debug\netcoreapp2.2\EmployeeBenefits.VM.AssemblyInfo.cs
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.VM\obj\Debug\netcoreapp2.2\EmployeeBenefits.VM.dll
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.VM\obj\Debug\netcoreapp2.2\EmployeeBenefits.VM.pdb

@@ -2,8 +2,9 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {switchMap} from 'rxjs/operators';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {Employee} from '../core/model/employee';
+import {IEmployee} from '../core/model/IEmployee';
 import {EmployeeService} from '../service/employee.service';
+import {Employee} from '../core/model/Employee';
 
 @Component({
   selector: 'app-quote',
@@ -16,14 +17,13 @@ export class QuoteComponent implements OnInit {
   displayedColumns: string[] = ['name', 'columndelete'];
   dependentData: string[] = [];
   employeeId: number;
+  employee: Employee;
 
   dataTableSource: string[];
 
   private changeDetectorRefs: ChangeDetectorRef;
 
   private readonly employeeService: EmployeeService;
-  private employee: Employee;
-
   constructor(changeDetectorRefs: ChangeDetectorRef,
               private readonly route: ActivatedRoute,
               private readonly router: Router,
@@ -56,9 +56,11 @@ export class QuoteComponent implements OnInit {
 
   }
 
-  private init() {
-    this.employeeService.get(this.employeeId)
-      .subscribe(result => this.employee = result);
+  init() {
+    if (this.employeeId) {
+      this.employeeService.get(this.employeeId)
+        .subscribe(result => this.employee = result);
+    }
   }
 
   addDependent() {

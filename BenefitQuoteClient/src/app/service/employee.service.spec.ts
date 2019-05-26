@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { EmployeeService } from './employee.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {asyncData, asyncError} from '../../testing/async-observable-helpers';
-import {Employee} from '../core/model/employee';
+import {IEmployee} from '../core/model/IEmployee';
 
 describe('EmployeeService', () => {
   let httpClientSpy: { get: jasmine.Spy };
@@ -15,7 +15,7 @@ describe('EmployeeService', () => {
   });
 
   it('should return a collection of employees', () => {
-    const employees: Employee[] = [{id: 1, name: 'Alvin Jones'}, {id: 2, name: 'Alex Smith'}];
+    const employees: IEmployee[] = [{id: 1, name: 'Alvin Jones'}, {id: 2, name: 'Alex Smith'}];
 
     httpClientSpy
       .get
@@ -30,7 +30,7 @@ describe('EmployeeService', () => {
   });
 
   it('should return expected employee requested by employeeId', () => {
-    const employee: Employee = {id: 1, name: 'Alvin Smith'}
+    const employee: IEmployee = {id: 1, name: 'Alvin Smith'}
 
     httpClientSpy
       .get

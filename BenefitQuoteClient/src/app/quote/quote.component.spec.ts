@@ -1,24 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+  import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuoteComponent } from './quote.component';
 import {EmployeeService} from '../service/employee.service';
 import {SharedModule} from '../shared/shared.module';
 import {CoreModule} from '../core/core.module';
 import {RouterTestingModule} from '@angular/router/testing';
+import {TestEmployeeService} from '../service/testing/test-employee.service';
 
 describe('QuoteComponent', () => {
   let component: QuoteComponent;
   let fixture: ComponentFixture<QuoteComponent>;
-  let mockEmployeeService: jasmine.SpyObj<EmployeeService>;
+  let mockEmployeeService: EmployeeService;
 
   beforeEach(() => {
-    const employeeServiceSpy = jasmine.createSpyObj('EmployeeService', ['get']);
+    const testEmployeeService = new TestEmployeeService(null);
 
     TestBed.configureTestingModule({
       imports: [CoreModule, SharedModule, RouterTestingModule],
       declarations: [ QuoteComponent],
       providers: [
-        {provide: EmployeeService, use: employeeServiceSpy}
+        {provide: EmployeeService, useValue: testEmployeeService}
       ]
     })
     .compileComponents();
@@ -34,6 +35,9 @@ describe('QuoteComponent', () => {
   });
 
   it('should display name of employee', () => {
-    expect(component.employeeId).toBeDefined();
+    component.employeeId = 1;
+    component.init();
+
+    expect(component.employee).toBeDefined();
   });
 });

@@ -1,4 +1,12 @@
-export interface Employee {
+import {IEmployee} from './IEmployee';
+
+export class Employee implements IEmployee {
   id: number;
   name: string;
+
+  constructor(id: number, name:string) {
+    this.id = id;
+    this.name = name;
+  }
 }
+

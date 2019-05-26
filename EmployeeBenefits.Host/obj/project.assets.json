@@ -4438,6 +4438,39 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "EmployeeBenefits.Impl/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "EmployeeBenefits.Type": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/EmployeeBenefits.Impl.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EmployeeBenefits.Impl.dll": {}
+        }
+      },
+      "EmployeeBenefits.Type/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/EmployeeBenefits.Type.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EmployeeBenefits.Type.dll": {}
+        }
+      },
+      "EmployeeBenefits.VM/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/EmployeeBenefits.VM.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EmployeeBenefits.VM.dll": {}
+        }
       }
     }
   },
@@ -12105,10 +12138,28 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "EmployeeBenefits.Impl/1.0.0": {
+      "type": "project",
+      "path": "../EmployeeBenefits.Impl/EmployeeBenefits.Impl.csproj",
+      "msbuildProject": "../EmployeeBenefits.Impl/EmployeeBenefits.Impl.csproj"
+    },
+    "EmployeeBenefits.Type/1.0.0": {
+      "type": "project",
+      "path": "../EmployeeBenefits.Type/EmployeeBenefits.Type.csproj",
+      "msbuildProject": "../EmployeeBenefits.Type/EmployeeBenefits.Type.csproj"
+    },
+    "EmployeeBenefits.VM/1.0.0": {
+      "type": "project",
+      "path": "../EmployeeBenefits.VM/EmployeeBenefits.VM.csproj",
+      "msbuildProject": "../EmployeeBenefits.VM/EmployeeBenefits.VM.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "EmployeeBenefits.Impl >= 1.0.0",
+      "EmployeeBenefits.Type >= 1.0.0",
+      "EmployeeBenefits.VM >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0"
@@ -12143,7 +12194,17 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\lborromeo\\Documents\\GitHub\\BenefitCostCalculator\\EmployeeBenefits.Impl\\EmployeeBenefits.Impl.csproj": {
+              "projectPath": "C:\\Users\\lborromeo\\Documents\\GitHub\\BenefitCostCalculator\\EmployeeBenefits.Impl\\EmployeeBenefits.Impl.csproj"
+            },
+            "C:\\Users\\lborromeo\\Documents\\GitHub\\BenefitCostCalculator\\EmployeeBenefits.Type\\EmployeeBenefits.Type.csproj": {
+              "projectPath": "C:\\Users\\lborromeo\\Documents\\GitHub\\BenefitCostCalculator\\EmployeeBenefits.Type\\EmployeeBenefits.Type.csproj"
+            },
+            "C:\\Users\\lborromeo\\Documents\\GitHub\\BenefitCostCalculator\\EmployeeBenefits.VM\\EmployeeBenefits.VM.csproj": {
+              "projectPath": "C:\\Users\\lborromeo\\Documents\\GitHub\\BenefitCostCalculator\\EmployeeBenefits.VM\\EmployeeBenefits.VM.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

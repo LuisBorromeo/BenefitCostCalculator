@@ -24,6 +24,9 @@
     ".NETCoreApp,Version=v2.2": {
       "EmployeeBenefits.Host/1.0.0": {
         "dependencies": {
+          "EmployeeBenefits.Impl": "1.0.0",
+          "EmployeeBenefits.Type": "1.0.0",
+          "EmployeeBenefits.VM": "1.0.0",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0"
@@ -33,6 +36,33 @@
         },
         "compile": {
           "EmployeeBenefits.Host.dll": {}
+        }
+      },
+      "EmployeeBenefits.Impl/1.0.0": {
+        "dependencies": {
+          "EmployeeBenefits.Type": "1.0.0"
+        },
+        "runtime": {
+          "EmployeeBenefits.Impl.dll": {}
+        },
+        "compile": {
+          "EmployeeBenefits.Impl.dll": {}
+        }
+      },
+      "EmployeeBenefits.Type/1.0.0": {
+        "runtime": {
+          "EmployeeBenefits.Type.dll": {}
+        },
+        "compile": {
+          "EmployeeBenefits.Type.dll": {}
+        }
+      },
+      "EmployeeBenefits.VM/1.0.0": {
+        "runtime": {
+          "EmployeeBenefits.VM.dll": {}
+        },
+        "compile": {
+          "EmployeeBenefits.VM.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3233,6 +3263,21 @@
   },
   "libraries": {
     "EmployeeBenefits.Host/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EmployeeBenefits.Impl/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EmployeeBenefits.Type/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EmployeeBenefits.VM/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

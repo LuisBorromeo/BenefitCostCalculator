@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using EmployeeBenefits.Type.Data;
 using EmployeeBenefits.Type.Rule;
 
-namespace BenefitCostCalculator.Test
+namespace EmployeeBenefits.Impl
 {
     public class RulesService : IRulesService
     {

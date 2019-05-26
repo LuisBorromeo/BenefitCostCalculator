@@ -107,30 +107,4 @@ namespace BenefitCostCalculator.Test
             Assert.True(employees.Count() == _allEmployees.Count());
         }
     }
-
-    public interface IEmployeeService
-    {
-        Employee Get(string employeeId);
-        IEnumerable<Employee> All();
-    }
-
-    public class EmployeeService : IEmployeeService
-    {
-        private readonly IRepository<Employee> _employeeRepository;
-
-        public EmployeeService(IRepository<Employee> employeeRepository)
-        {
-            _employeeRepository = employeeRepository;
-        }
-
-        public Employee Get(string employeeId)
-        {
-            return _employeeRepository.Get(employeeId);
-        }
-
-        public IEnumerable<Employee> All()
-        {
-            return _employeeRepository.ToList();
-        }
-    }
 }

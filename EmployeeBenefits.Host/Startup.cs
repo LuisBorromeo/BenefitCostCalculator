@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BenefitCostCalculator.Test;
+using EmployeeBenefits.Impl.Encoding;
+using EmployeeBenefits.Type;
+using EmployeeBenefits.Type.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +29,12 @@ namespace EmployeeBenefits.Host
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            var memoryRepository = new MemoryRepository<Employee>();
+            SetupEmployees().ForEach(employee => memoryRepository.Save(employee.Id, employee));
+            services.AddSingleton<IRepository<Employee>>(memoryRepository);
+
+            services.AddTransient<IEmployeeService, EmployeeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,5 +47,53 @@ namespace EmployeeBenefits.Host
 
             app.UseMvc();
         }
+
+        private List<Employee> SetupEmployees()
+        {
+            return new List<Employee>()
+            {
+                new Employee()
+                {
+                    Id = Guid.NewGuid().ToShortString(),
+                    Name = "Robert Martin",
+                    Salary = 52000,
+                    Dependents = new List<string>
+                    {
+                        "Ava Martin",
+                        "Eloise Martin"
+                    }
+
+                },
+                new Employee()
+                {
+                    Id = Guid.NewGuid().ToShortString(),
+                    Name = "Martin Fowler",
+                    Salary = 52000,
+                    Dependents = new List<string>
+                    {
+                        "Martha Fowler",
+                        "Ben Fowler",
+                        "Alex Fowler",
+                    }
+                },
+                new Employee()
+                {
+                    Id = Guid.NewGuid().ToShortString(),
+                    Name = "Eric Evans",
+                    Salary = 52000,
+                    Dependents = new List<string>
+                    {
+                        "Lisa Evans"
+                    }
+                },
+                new Employee()
+                {
+                    Id = Guid.NewGuid().ToShortString(),
+                    Name = "Alan Turing",
+                    Salary = 52000
+                }
+            };
+        }
+
     }
 }

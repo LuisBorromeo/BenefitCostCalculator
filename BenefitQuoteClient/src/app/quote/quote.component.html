@@ -9,12 +9,12 @@
       <h4 id="employeeName">{{employee.name}}</h4>
 
       <mat-form-field style="width:100%">
-        <input matInput placeholder="Dependent Name" [(ngModel)]="dependentNameInput">
+        <input matInput placeholder="Dependent Name" [(ngModel)]="dependentNameInput" (input)="validateDependentName($event)">
       </mat-form-field>
 
       &nbsp;
-      <button mat-button mat-raised-button color="primary" (click)="addDependent()">Add</button>
-
+      <button mat-button mat-raised-button color="primary" (click)="addDependent()" [disabled]="!isValidDependentName">Add</button>
+      <p></p>
 
       <table mat-table [dataSource]="dataTableSource" class="mat-elevation-z8">
 

@@ -17,6 +17,7 @@ export class QuoteComponent implements OnInit {
   isError = false;
   errorMessage: string;
 
+  isValidDependentName: boolean;
   dependentNameInput: string;
 
   displayedColumns: string[] = ['name', 'columndelete'];
@@ -27,8 +28,8 @@ export class QuoteComponent implements OnInit {
   dataTableSource: string[];
 
   private changeDetectorRefs: ChangeDetectorRef;
-
   private readonly employeeService: EmployeeService;
+
   constructor(changeDetectorRefs: ChangeDetectorRef,
               private readonly route: ActivatedRoute,
               private readonly router: Router,
@@ -43,25 +44,17 @@ export class QuoteComponent implements OnInit {
       map(params => {
         return params.get('employeeId');
         /*const id = +params.get('employeeId')
-        return this.service.getData(id) // http request*/
+        return this.service.getEmployeeData(id) // http request*/
       })
     );
 
     employeeIdRouteParam$.subscribe(employeeIdRouteParam => {
       this.employeeId = employeeIdRouteParam;
-      this.getData();
+      this.getEmployeeData();
     });
-
-    // For subscribing to the observable paramMap...
-    // this._route.paramMap.pipe(
-    //   switchMap((params: ParamMap) => {
-    //     this.employeeId = +params.get('employeeId');
-    //   })
-    // );
-
   }
 
-  getData() {
+  getEmployeeData() {
     if (this.employeeId) {
       this.employeeService
         .get(this.employeeId)
@@ -74,6 +67,8 @@ export class QuoteComponent implements OnInit {
   }
 
   addDependent() {
+    // make api call to get quote
+
     // validate: check if null ot empty
     this.dependentData.push(this.dependentNameInput);
     this.dependentNameInput = '';
@@ -90,9 +85,22 @@ export class QuoteComponent implements OnInit {
     let i = this.dependentData.indexOf(element);
     this.dependentData.splice(i, 1);
     this.refresh();
-    /*this.dataSource.data = this.dataSource.data
-      .filter(i => i !== elm)
-      .map((i, idx) => (i.position = (idx + 1), i));*/
+  }
+
+  validateDependentName($event: Event) {
+    let isValid = true;
+    const target = $event.target as HTMLTextAreaElement;
+    const inputValue = target.value;
+
+    if (!inputValue){
+      isValid = false;
+    }
+
+    if ('' === inputValue.trim()){
+      isValid = false;
+    }
+
+    this.isValidDependentName = isValid;
   }
 
   private handleError<T>(resourceName = 'resource') {
@@ -125,5 +133,4 @@ export class QuoteComponent implements OnInit {
       throw new Error(`${resourceName} failed: ${this.errorMessage}`);
     };
   }
-
 }

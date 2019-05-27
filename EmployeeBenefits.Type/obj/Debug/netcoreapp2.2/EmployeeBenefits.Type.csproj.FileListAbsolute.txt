@@ -6,3 +6,4 @@ C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\obj\Debug\netcoreapp2.2\EmployeeBenefits.Type.AssemblyInfo.cs
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\obj\Debug\netcoreapp2.2\EmployeeBenefits.Type.dll
 C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\obj\Debug\netcoreapp2.2\EmployeeBenefits.Type.pdb
+C:\Users\lborromeo\Documents\GitHub\BenefitCostCalculator\EmployeeBenefits.Type\obj\Debug\netcoreapp2.2\EmployeeBenefits.Type.csprojAssemblyReference.cache

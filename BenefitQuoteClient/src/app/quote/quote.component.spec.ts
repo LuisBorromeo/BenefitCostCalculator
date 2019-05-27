@@ -37,7 +37,7 @@ describe('QuoteComponent', () => {
 
   it('should get employee by valid employeeId', () => {
     component.employeeId = '1';
-    component.getData();
+    component.getEmployeeData();
 
     expect(component.employee).toBeDefined();
     expect(component.isError).toBeFalsy();
@@ -45,7 +45,7 @@ describe('QuoteComponent', () => {
 
   it('should diplay 404 message if employee not found.', () => {
     component.employeeId = '2341234';
-    component.getData();
+    component.getEmployeeData();
 
     expect(component.employee).toBeUndefined();
     expect(component.isError).toBeTruthy();

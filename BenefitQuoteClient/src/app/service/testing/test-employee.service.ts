@@ -45,7 +45,7 @@ export class TestEmployeeService extends EmployeeService {
     return of(this.employees.find(e => e.id === employeeId))
       .pipe(
         map(empl => {
-          if (empl){
+          if (empl) {
             return empl;
           } else {
             throw new HttpErrorResponse({status: 404, statusText: 'Not Found', url: '/employee'});

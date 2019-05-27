@@ -15,12 +15,12 @@ namespace EmployeeBenefits.Impl
 
         public QuoteService(
             IRepository<Employee> employeeRepository, 
-            IRepository<Quote> quoteRepository,
+//            IRepository<Quote> quoteRepository,
             IRuleEvaluator discountCalculator
             )
         {
             _employeeRepository = employeeRepository;
-            _quoteRepository = quoteRepository;
+//            _quoteRepository = quoteRepository;
             _discountCalculator = discountCalculator;
         }
 
@@ -30,9 +30,9 @@ namespace EmployeeBenefits.Impl
 
             var employee = _employeeRepository.Get(employeeId) ?? throw new ArgumentNullException("_employeeRepository.Get(employeeId)");
 
-            //_discountCalculator.GetTotalDiscount();
+            var quote = _discountCalculator.GetQuote(employee, dependentNames);
 
-            return null;
+            return quote;
         }
     }
 }

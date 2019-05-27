@@ -2,6 +2,6 @@ namespace EmployeeBenefits.Type.Rule
 {
     public interface IRuleEvaluator
     {
-        decimal GetTotalDiscount(Employee employee);
+        Quote GetQuote(Employee employee, string[] dependentNames);
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using EmployeeBenefits.Type;
 using EmployeeBenefits.Type.Rule;
@@ -9,6 +10,7 @@ namespace EmployeeBenefits.Impl.Rule
         private readonly decimal _baseAnnualCostPerEmployee;
         private readonly decimal _annualCostPerDependent;
         private readonly decimal _discountPercent;
+        private string _discountName = "10% discount when name start with the letter A";
 
         public NameStartingWithTheLetterA(decimal baseAnnualCostPerEmployee, decimal annualCostPerDependent, decimal discountPercent)
         {
@@ -17,25 +19,60 @@ namespace EmployeeBenefits.Impl.Rule
             _discountPercent = discountPercent;
         }
 
-        public decimal GetDiscount(Employee employee)
+        public List<RuleValue> GetDiscount(QuoteParameter quoteParameter)
         {
-            decimal totalDiscount = 0;
+            //decimal totalDiscount = 0;
+            var quoteItems = new List<RuleValue>();
+
+            var employeeQuoteItem = new RuleValue()
+            {
+                Name = _discountName,
+                Cost = _annualCostPerDependent,
+                DiscountAmount = 0
+            };
 
             // 10% discount rule
-            if (employee.Name.Trim().ToLower().StartsWith("a"))
+            if (quoteParameter.EmployeeName.Trim().ToLower().StartsWith("a"))
             {
-                totalDiscount += _baseAnnualCostPerEmployee * _discountPercent;
+                decimal discountAmount = _baseAnnualCostPerEmployee * _discountPercent;
+                //totalDiscount += discountAmount;
+
+                employeeQuoteItem.IsDiscountApplied = true;
+                employeeQuoteItem.DiscountAmount = discountAmount;
+                
+            }
+            quoteItems.Add(employeeQuoteItem);
+
+            if (quoteParameter.Dependents != null)
+            {
+                foreach (string name in quoteParameter.Dependents)
+                {
+                    var quoteItem = new RuleValue()
+                    {
+                        Name = _discountName,
+                        Cost = _annualCostPerDependent,
+                        DiscountAmount = 0
+                    };
+
+                    if (name.Trim().ToLower().StartsWith("a"))
+                    {
+                        decimal discountAmount = _annualCostPerDependent * _discountPercent;
+                        //totalDiscount += discountAmount;
+
+                        quoteItem.IsDiscountApplied = true;
+                        quoteItem.DiscountAmount = discountAmount;
+                    }
+
+                    quoteItems.Add(quoteItem);
+                }
+
+                //                var numberOfDependentsEligibleForDiscount = quoteParameter.Dependents
+                //                    .Count(name => name.Trim().ToLower().StartsWith("a"));
+                //
+                //                totalDiscount += (_annualCostPerDependent * _discountPercent) * (decimal) numberOfDependentsEligibleForDiscount;
             }
 
-            if (employee.Dependents != null)
-            {
-                var numberOfDependentsEligibleForDiscount = employee?.Dependents
-                    .Count(name => name.Trim().ToLower().StartsWith("a"));
-
-                totalDiscount += (_annualCostPerDependent * _discountPercent) * (decimal) numberOfDependentsEligibleForDiscount;
-            }
-
-            return totalDiscount;
+            return quoteItems;
         }
     }
 }

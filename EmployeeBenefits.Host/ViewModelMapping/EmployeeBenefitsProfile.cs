@@ -13,6 +13,8 @@ namespace EmployeeBenefits.Host.ViewModelMapping
         public EmployeeBenefitsProfile()
         {
             CreateMap<Employee, EmployeeResult>();
+            CreateMap<Quote, BenefitsCostQuoteResult>();
+            CreateMap<RuleValue, RuleValueResult>();
         }
     }
 }

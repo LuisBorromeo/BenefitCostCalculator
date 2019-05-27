@@ -50,11 +50,8 @@ namespace EmployeeBenefits.Host.Controllers
 
             var quote = _quoteService.GenerateQuote(quoteRequest.EmployeeId, quoteRequest.DependentNames);
 
-            BenefitsCostQuoteResult quoteResult = new BenefitsCostQuoteResult()
-            {
-                EmployeeId = "Oh_Yeah"
-            };
-            return CreatedAtAction(nameof(Get), new { id = quoteRequest.EmployeeId }, quoteResult);
+            var benefitsCostQuoteResult = _mapper.Map<BenefitsCostQuoteResult>(quote);
+            return CreatedAtAction(nameof(Get), new { id = quoteRequest.EmployeeId }, benefitsCostQuoteResult);
         }
 
         // PUT: api/Quote/5

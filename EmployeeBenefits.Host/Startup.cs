@@ -4,9 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BenefitCostCalculator.Test;
+using EmployeeBenefits.Impl;
 using EmployeeBenefits.Impl.Encoding;
+using EmployeeBenefits.Impl.Rule;
 using EmployeeBenefits.Type;
 using EmployeeBenefits.Type.Data;
+using EmployeeBenefits.Type.Rule;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -32,12 +35,30 @@ namespace EmployeeBenefits.Host
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAutoMapper();
-
+            
             var memoryRepository = new MemoryRepository<Employee>();
             SetupEmployees().ForEach(employee => memoryRepository.Save(employee.Id, employee));
             services.AddSingleton<IRepository<Employee>>(memoryRepository);
 
             services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<IQuoteService, QuoteService>();
+            services.AddTransient<IRuleEvaluator, DiscountCalculator>();
+
+            /* Rules Registration */
+            services.AddTransient(r => new NameStartingWithTheLetterA(1000, 500, (decimal).1));
+
+            services.AddTransient<Func<string, IDiscountRule[]>>(serviceProvider => key =>
+            {
+                switch (key)
+                {
+                    case "NameStartingWithTheLetterA":
+                        return new[] { serviceProvider.GetService<NameStartingWithTheLetterA>() };
+                    case "All":
+                        return new[] { serviceProvider.GetService<NameStartingWithTheLetterA>() };
+                    default:
+                        throw new KeyNotFoundException(); // or maybe return null, up to you
+                }
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

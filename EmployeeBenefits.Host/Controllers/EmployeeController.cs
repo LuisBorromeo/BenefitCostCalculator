@@ -42,7 +42,7 @@ namespace EmployeeBenefits.Host.Controllers
                 return NotFound();
             }
 
-            return _mapper.Map <EmployeeResult>(employee);
+            return _mapper.Map<EmployeeResult>(employee);
         }
 
         // POST api/values

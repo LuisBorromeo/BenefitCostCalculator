@@ -33,7 +33,7 @@ namespace BenefitCostCalculator.Test
                     case "All":
                         return new[] { new NameStartingWithTheLetterA(1000, 500, (decimal).1) };
                     default:
-                        throw new KeyNotFoundException(); // or maybe return null, up to you
+                        throw new KeyNotFoundException();
                 }
             };
         }

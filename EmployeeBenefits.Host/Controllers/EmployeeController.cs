@@ -21,6 +21,7 @@ namespace EmployeeBenefits.Host.Controllers
             _employeeService = employeeService;
             _mapper = mapper;
         }
+
         // GET api/employee
         [HttpGet]
         public ActionResult<IEnumerable<EmployeeResult>> Get()
@@ -43,18 +44,6 @@ namespace EmployeeBenefits.Host.Controllers
             }
 
             return _mapper.Map<EmployeeResult>(employee);
-        }
-
-        // POST api/values
-//        [HttpPost]
-//        public void Post([FromBody] string value)
-//        {
-//        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
         }
     }
 }

@@ -20,7 +20,7 @@ namespace BenefitCostCalculator.Test
         [Fact]
         public void Should_generate_a_quote()
         {
-            var quoteRequest = new BenefitsCostQuoteRequest();
+            var quoteRequest = new BenefitsCostQuoteRequest {EmployeeId = "1" };
             var quote = new Quote();
 
             var mockService = new Mock<IQuoteService>();
@@ -59,9 +59,7 @@ namespace BenefitCostCalculator.Test
 
             var actionResult = controller.Post(quoteRequest);
 
-
-            mockService.Verify(es => es.GenerateQuote(It.IsAny<string>(), It.IsAny<string[]>()), Times.Once);
-            mockMapper.Verify(m => m.Map<BenefitsCostQuoteResult>(It.IsAny<Quote>()), Times.Once);
+            Assert.IsType<BadRequestResult>(actionResult);
         }
     }
 }

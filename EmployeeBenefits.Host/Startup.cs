@@ -56,7 +56,7 @@ namespace EmployeeBenefits.Host
                     case "All":
                         return new[] { serviceProvider.GetService<NameStartingWithTheLetterA>() };
                     default:
-                        throw new KeyNotFoundException(); // or maybe return null, up to you
+                        throw new KeyNotFoundException();
                 }
             });
         }

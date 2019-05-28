@@ -10,17 +10,14 @@ namespace EmployeeBenefits.Impl
     public class QuoteService : IQuoteService
     {
         private readonly IRepository<Employee> _employeeRepository;
-        private readonly IRepository<Quote> _quoteRepository;
         private readonly IRuleEvaluator _discountCalculator;
 
         public QuoteService(
             IRepository<Employee> employeeRepository, 
-//            IRepository<Quote> quoteRepository,
             IRuleEvaluator discountCalculator
             )
         {
             _employeeRepository = employeeRepository;
-//            _quoteRepository = quoteRepository;
             _discountCalculator = discountCalculator;
         }
 

@@ -69,7 +69,10 @@ export class QuoteComponent implements OnInit {
           map(employee => employee),
           catchError(this.handleError<Employee>(`Employee`))
         )
-        .subscribe(result => this.employee = result);
+        .subscribe(result => {
+          this.employee = result;
+          this.generateQuote();
+        });
     }
   }
 
@@ -90,6 +93,7 @@ export class QuoteComponent implements OnInit {
       )
       .subscribe(result => {
         this.benefitCostQuote = result;
+        debugger
         this.refresh();
       });
   }

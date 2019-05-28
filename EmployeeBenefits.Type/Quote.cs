@@ -7,5 +7,6 @@ namespace EmployeeBenefits.Type
         public List<RuleValue> QuoteItems { get; set; }
         public decimal TotalDiscounts { get; set; }
         public decimal Total { get; set; }
+        public decimal CostPerPaycheck { get; set; }
     }
 }

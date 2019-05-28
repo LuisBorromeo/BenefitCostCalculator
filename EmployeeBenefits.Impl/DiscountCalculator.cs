@@ -39,9 +39,11 @@ namespace EmployeeBenefits.Impl
             //aggregate results
             var totalDiscountAmount = quote.QuoteItems.Sum(x => x.DiscountAmount);
             var totalAmount = quote.QuoteItems.Sum(x => x.Cost) - totalDiscountAmount;
+            var costPerPaycheck = totalAmount / 26;
 
             quote.TotalDiscounts = totalDiscountAmount;
             quote.Total = totalAmount;
+            quote.CostPerPaycheck = costPerPaycheck;
             
             return quote;
         }

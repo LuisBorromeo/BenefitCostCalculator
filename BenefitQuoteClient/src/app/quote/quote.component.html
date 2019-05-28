@@ -61,6 +61,20 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
 
+      <div class="totalContainer">
+        <div class="flexRow">
+          <div class="flexColumn">Total Discount</div>
+          <div class="flexColumn" *ngIf="benefitCostQuote">{{benefitCostQuote.totalDiscounts}}</div>
+        </div>
+        <div class="flexRow">
+          <div class="flexColumn">Total</div>
+          <div class="flexColumn" *ngIf="benefitCostQuote">{{benefitCostQuote.total}}</div>
+        </div>
+        <div class="flexRow">
+          <div class="flexColumn">Cost Per Paycheck</div>
+          <div class="flexColumn" *ngIf="benefitCostQuote">{{benefitCostQuote.costPerPaycheck | number : '1.2-2'}}</div>
+        </div>
+      </div>
     </mat-card>
   </div>
 </div>

@@ -9,5 +9,6 @@ namespace EmployeeBenefits.VM
         public List<RuleValueResult> QuoteItems { get; set; }
         public decimal TotalDiscounts { get; set; }
         public decimal Total { get; set; }
+        public decimal CostPerPaycheck { get; set; }
     }
 }

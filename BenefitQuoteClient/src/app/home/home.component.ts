@@ -10,7 +10,7 @@ import {RuleValueResult} from '../core/model/RuleValueResult';
 })
 export class HomeComponent implements OnInit {
   private _employeeService: EmployeeService;
-  private employees: Employee[];
+  employees: Employee[];
 
   displayedColumns: string[] = ['employeeId', 'name'];
   dataTableSource: Employee[];

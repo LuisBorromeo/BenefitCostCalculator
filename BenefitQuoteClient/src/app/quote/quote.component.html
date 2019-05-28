@@ -4,9 +4,9 @@
     {{errorMessage}}
   </div>
   <div *ngIf="employee">
-    <h1>Benefits Quote</h1>
+    <h3>Benefits Quote</h3>
     <mat-card class="cardStyle">
-      <h4 id="employeeName">{{employee.name}}</h4>
+      <h1 id="employeeName">{{employee.name}}</h1>
 
       <mat-form-field style="width:100%">
         <input matInput placeholder="Dependent Name" [(ngModel)]="dependentNameInput" (input)="validateDependentName($event)">

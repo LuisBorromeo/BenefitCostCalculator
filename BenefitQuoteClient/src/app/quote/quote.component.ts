@@ -93,7 +93,6 @@ export class QuoteComponent implements OnInit {
       )
       .subscribe(result => {
         this.benefitCostQuote = result;
-        debugger
         this.refresh();
       });
   }

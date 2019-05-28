@@ -26,8 +26,9 @@ namespace EmployeeBenefits.Impl.Rule
 
             var employeeQuoteItem = new RuleValue()
             {
-                Name = _discountName,
-                Cost = _annualCostPerDependent,
+                ParameterValue = quoteParameter.EmployeeName,
+                Description = _discountName,
+                Cost = _baseAnnualCostPerEmployee,
                 DiscountAmount = 0
             };
 
@@ -49,7 +50,8 @@ namespace EmployeeBenefits.Impl.Rule
                 {
                     var quoteItem = new RuleValue()
                     {
-                        Name = _discountName,
+                        ParameterValue = name,
+                        Description = _discountName,
                         Cost = _annualCostPerDependent,
                         DiscountAmount = 0
                     };

@@ -1,4 +1,7 @@
+import {RuleValueResult} from './RuleValueResult';
+
 export class BenefitsCostQuote {
-  name: string;
-  
+  quoteItems: RuleValueResult[]
+  totalDiscounts: number;
+  total: number;
 }

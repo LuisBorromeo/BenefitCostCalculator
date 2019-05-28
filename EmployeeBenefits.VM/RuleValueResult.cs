@@ -1,8 +1,12 @@
-﻿namespace EmployeeBenefits.Type
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace EmployeeBenefits.VM
 {
-    public class RuleValue
+    public class RuleValueResult
     {
-        public string Description { get; set; }
+        public string Name { get; set; }
         public decimal DiscountAmount { get; set; }
         public decimal Cost { get; set; }
         public bool IsDiscountApplied { get; set; }

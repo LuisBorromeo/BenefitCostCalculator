@@ -10,12 +10,4 @@ namespace EmployeeBenefits.VM
         public decimal TotalDiscounts { get; set; }
         public decimal Total { get; set; }
     }
-
-    public class RuleValueResult
-    {
-        public string Name { get; set; }
-        public decimal DiscountAmount { get; set; }
-        public decimal Cost { get; set; }
-        public bool IsDiscountApplied { get; set; }
-    }
 }

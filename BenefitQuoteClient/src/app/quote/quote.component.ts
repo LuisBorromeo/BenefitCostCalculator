@@ -7,6 +7,9 @@ import {EmployeeService} from '../service/employee.service';
 import {Employee} from '../core/model/Employee';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {QuoteService} from '../service/quote.service';
+import {BenefitsCostQuote} from '../core/model/BenefitsCostQuote';
+import {RuleValueResult} from '../core/model/RuleValueResult';
 
 @Component({
   selector: 'app-quote',
@@ -20,22 +23,26 @@ export class QuoteComponent implements OnInit {
   isValidDependentName: boolean;
   dependentNameInput: string;
 
-  displayedColumns: string[] = ['name', 'columndelete'];
+  displayedColumns: string[] = ['name', 'cost', 'discount', 'isDiscountApplied', 'columndelete'];
   dependentData: string[] = [];
   employeeId: string;
   employee: Employee;
 
-  dataTableSource: string[];
+  dataTableSource: RuleValueResult[];
 
   private changeDetectorRefs: ChangeDetectorRef;
   private readonly employeeService: EmployeeService;
+  private quoteService: QuoteService;
+  private benefitCostQuote: BenefitsCostQuote;
 
   constructor(changeDetectorRefs: ChangeDetectorRef,
               private readonly route: ActivatedRoute,
               private readonly router: Router,
-              employeeService: EmployeeService) {
+              employeeService: EmployeeService,
+              quoteService: QuoteService) {
     this.employeeService = employeeService;
     this.changeDetectorRefs = changeDetectorRefs;
+    this.quoteService = quoteService;
   }
 
   ngOnInit() {
@@ -67,24 +74,36 @@ export class QuoteComponent implements OnInit {
   }
 
   addDependent() {
-    // make api call to get quote
-
     // validate: check if null ot empty
+
     this.dependentData.push(this.dependentNameInput);
     this.dependentNameInput = '';
-    this.refresh();
+    this.generateQuote();
+  }
+
+  private generateQuote() {
+    this.quoteService
+      .generateQuote(this.employeeId, this.dependentData)
+      .pipe(
+        map(benefitCostQuote => benefitCostQuote),
+        catchError(this.handleError<BenefitsCostQuote>(`Quote`))
+      )
+      .subscribe(result => {
+        this.benefitCostQuote = result;
+        this.refresh();
+      });
   }
 
   refresh() {
-    this.dataTableSource = [...this.dependentData];
+    this.dataTableSource = [...this.benefitCostQuote.quoteItems];
     this.changeDetectorRefs.detectChanges();
   }
 
-  delete(element: any) {
+  removeDependent(element: any) {
     // console.log(element);
     let i = this.dependentData.indexOf(element);
     this.dependentData.splice(i, 1);
-    this.refresh();
+    this.generateQuote();
   }
 
   validateDependentName($event: Event) {

@@ -43,7 +43,7 @@ describe('QuoteComponent', () => {
     expect(component.isError).toBeFalsy();
   });
 
-  it('should diplay 404 message if employee not found.', () => {
+  it('should display 404 message if employee not found.', () => {
     component.employeeId = '2341234';
     component.getEmployeeData();
 

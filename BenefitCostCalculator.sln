@@ -5,13 +5,35 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenefitCostCalculator.Test", "BenefitCostCalculator.Test\BenefitCostCalculator.Test.csproj", "{6A741D5B-F7F9-4E86-B9AE-212E41CCA970}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeBenefits.Host", "EmployeeBenefits.Host\EmployeeBenefits.Host.csproj", "{8BB5CF5B-8ED4-4675-8C2B-A68E6DC85327}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeBenefits.Host", "EmployeeBenefits.Host\EmployeeBenefits.Host.csproj", "{8BB5CF5B-8ED4-4675-8C2B-A68E6DC85327}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeBenefits.Type", "EmployeeBenefits.Type\EmployeeBenefits.Type.csproj", "{7A20354C-60AB-4178-AD3D-C9155C1DB503}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeBenefits.Type", "EmployeeBenefits.Type\EmployeeBenefits.Type.csproj", "{7A20354C-60AB-4178-AD3D-C9155C1DB503}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeBenefits.Impl", "EmployeeBenefits.Impl\EmployeeBenefits.Impl.csproj", "{D54E27F2-C917-4BDB-AA22-A1DE97B354EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeBenefits.Impl", "EmployeeBenefits.Impl\EmployeeBenefits.Impl.csproj", "{D54E27F2-C917-4BDB-AA22-A1DE97B354EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeBenefits.VM", "EmployeeBenefits.VM\EmployeeBenefits.VM.csproj", "{7B57FCF9-BC86-4F24-A04B-FFC914C669BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeBenefits.VM", "EmployeeBenefits.VM\EmployeeBenefits.VM.csproj", "{7B57FCF9-BC86-4F24-A04B-FFC914C669BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7591459A-3FED-45FD-AF52-2CD01E3FDF69}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BenefitQuoteClient", "BenefitQuoteClient\", "{54005BC0-82DA-487C-A56D-A62FD071C656}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55690"
+		Debug.AspNetCompiler.PhysicalPath = "BenefitQuoteClient\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55690\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55690"
+		Release.AspNetCompiler.PhysicalPath = "BenefitQuoteClient\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55690\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55690"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +61,10 @@ Global
 		{7B57FCF9-BC86-4F24-A04B-FFC914C669BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B57FCF9-BC86-4F24-A04B-FFC914C669BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B57FCF9-BC86-4F24-A04B-FFC914C669BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54005BC0-82DA-487C-A56D-A62FD071C656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54005BC0-82DA-487C-A56D-A62FD071C656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54005BC0-82DA-487C-A56D-A62FD071C656}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{54005BC0-82DA-487C-A56D-A62FD071C656}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
